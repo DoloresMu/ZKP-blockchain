@@ -15,9 +15,13 @@ In addition to ensuring the integrity of data, the consensus mechanism in blockc
 ## Interactive Proof vs Zero knowledge Proof
 In the exciting and ever-changing world of cryptocurrency, you might come across the abbreviation "ZK". Typically, this refers to "zero knowledge", which is often associated with something called "zero knowledge proofs". However, it's important to note that in some cases, "ZK" might actually stand for "interactive proofs". This can be confusing for those who aren't familiar with the difference between the two.
 
-To help clarify, let's use an example: imagine you're playing a game of "guess the secret number" with a friend. You choose a number between 1 and 100, and your friend has to guess what it is by asking you a series of yes-or-no questions. This is kind of like an interactive proof, where your friend is the verifier trying to prove that they know the secret number.
+To provide a concrete illustration of the concept, consider the following scenario: Imagine that you make a claim to your friend that you possess the ability to differentiate the two faces of any coin. To put your assertion to the test, your friend hands you a random coin and asks you to demonstrate your ability by describing how you differentiate the two faces. After several rounds of this exercise, your friend becomes convinced that you possess the ability to distinguish the two sides of a coin.
 
-On the other hand, zero knowledge proofs are a little different. Instead of trying to guess the secret number, imagine you're trying to prove to your friend that you know the secret number without actually telling them what it is. You might do this by performing a series of mathematical calculations that demonstrate your knowledge of the number, but without revealing the number itself. This is the basic idea behind zero knowledge proofs.
+In this example, your friend serves as the verifier, seeking to determine whether your claim of coin differentiation is genuine. You, on the other hand, act as the prover, seeking to convince your friend of your ability without revealing the details of your method. This scenario resembles an interactive proof, in which the verifier challenges the prover to demonstrate their knowledge, and the prover responds with evidence that satisfies the verifier's demands.
+
+On the other hand, zero knowledge proofs are a little different. This time you do not want to reveal how you differentiate the two faces. In this case, you and your friend both know the initial state of the coin, and you turn away while your friend decides whether to flip the coin or leave it in its current state. When you turn back, your friend asks you whether or not the coin has been flipped. If you can consistently answer correctly, your friend becomes convinced of your ability to differentiate the two faces of the coin.
+
+
 |||
 | --- | --- | 
 | <img src="image/IP.png" align="left" width="300" /> | <img src="image/ZKP.png" align="left" width="300" /> | This is the text that will appear next to the images. |
@@ -25,10 +29,17 @@ On the other hand, zero knowledge proofs are a little different. Instead of tryi
 
 So, the next time you see "ZK" in the world of cryptocurrency, remember that it might refer to either zero knowledge proofs or interactive proofs. While they're both important concepts in cryptography, they're not quite the same thing!
 
-Another commonly seen fascinating term is **SNARK** (Succinct Non-interactive Argument of Knowledge), which can be broadly understood as those zero knowledge proofs with cheap communication and computational cost for the verifier. Do you know what "zk-SNARK" means? Yes, you are right - it refers to SNARK with zero knowledge properties.
+Another commonly seen fascinating term is **SNARK** (Succinct Non-interactive Argument of Knowledge), which can be broadly understood as those zero knowledge proofs with cheap communication and computational cost for the verifier. Do you know what "zk-SNARK" means? Yes, you are right - it refers to SNARK with zero knowledge properties. For further elaboration, the zk-SNARK (Zero-Knowledge Succinct Non-Interactive Argument of Knowledge) protocol embodies the following characteristics:
+
+- Zero-Knowledge: The proof does not reveal any information about the knowledge itself.
+- Non-interactive: The proof can be conveyed in a single message from the prover to the verifier, eliminating the need for back-and-forth interaction.
+- Argument: The interaction between the prover and verifier is limited, consisting of only a few rounds and minimal communication cost.
+- Knowledge: The proof demonstrates that the prover possesses certain knowledge or information, without revealing the information itself.
+
+Together, these features make zk-SNARKs a powerful tool for verifying the authenticity and validity of claims, while preserving the privacy and security of sensitive information. 
 
 ## Interactive Proof/SNARK in Blockchain
-Smart contracts provide a trusted computing solution where they execute exactly as programmed, and the results cannot be tampered with by any party. However, this process can be slow and costly in some cases. In such situations, it may be more efficient to verify answers rather than searching for them. Interactive proof can be used in the blockchain virtual machine to achieve faster computation and reduce costs. The smart contract includes a trusted verification function for incoming advice, and untrusted machines prove the validity of the computation to the verifier on-chain.
+Smart contracts provide a trusted computing solution where they execute exactly as programmed, and the results cannot be tampered with by any party. However, this process can be slow and costly in some cases. In such situations, it may be more efficient to verify answers rather than computing/searching by themselves. Interactive proof can be used in the blockchain virtual machine to achieve faster computation and reduce costs. The smart contract includes a trusted verification function for incoming advice, and untrusted machines prove the validity of the computation to the verifier on-chain.
 ### 1. SNARK improves scalability
 Blockchain technology has been gaining a lot of attention due to its decentralized and immutable nature. However, one of the major challenges of blockchain is scalability. As more users join the network and more transactions are added, the processing time and costs increase exponentially. This can lead to a slow and expensive network, which is not practical for mass adoption.
 
